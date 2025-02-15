@@ -97,7 +97,7 @@ export default function BoardList() {
           <h1>KANBAN TO-DO</h1>
           <CreateBoard onBoardCreate={fetchBoards} />
         </div>
-        <div className="flex gap-4 overflow-x-auto flex-grow scrollbar-visible">
+        <div className="flex gap-4 overflow-x-auto overflow-y-auto flex-grow">
           <SortableContext
             items={boards.map((board) => board.id)}
             strategy={horizontalListSortingStrategy}

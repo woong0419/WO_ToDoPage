@@ -10,6 +10,7 @@ import {
 } from "@dnd-kit/sortable";
 
 import TodoItem from "@/components/todo/TodoItem";
+import Button from "@/components/common/Button";
 
 interface TodoListProps {
   boardId: string;
@@ -56,9 +57,7 @@ export default function TodoList({ boardId }: TodoListProps) {
       >
         <div className="space-y-2">
           {adlltodos.map((todo) => (
-            <div key={todo.id} className="p-2 bg-white rounded shadow">
-              <TodoItem todo={todo} boardId={boardId} />
-            </div>
+            <TodoItem todo={todo} boardId={boardId} key={todo.id} />
           ))}
         </div>
       </SortableContext>
@@ -74,19 +73,19 @@ export default function TodoList({ boardId }: TodoListProps) {
             autoFocus
           />
           <div className="flex gap-2 mt-2">
-            <button
+            <Button
               type="submit"
               className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
             >
               추가
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
-              onClick={() => setIsAdding(false)}
+              clickHandler={() => setIsAdding(false)}
               className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
             >
               취소
-            </button>
+            </Button>
           </div>
         </form>
       ) : (

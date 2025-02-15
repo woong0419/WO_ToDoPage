@@ -8,6 +8,7 @@ import { useModalStore } from "@/store/modalStore";
 import { CSS } from "@dnd-kit/utilities";
 
 import TodoList from "@/components/todo/TodoList";
+import Button from "@/components/common/Button";
 import { useTodoStore } from "@/store/todoStore";
 
 interface BoardCardProps {
@@ -76,18 +77,18 @@ export default function BoardCard({ board, onBoardUpdate }: BoardCardProps) {
             <h2>{title}</h2>
           </div>
           <div className="flex gap-2 mt-2">
-            <button
-              onClick={() => setIsEditing(true)}
-              className="px-2 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600"
+            <Button
+              clickHandler={() => setIsEditing(true)}
+              className=" bg-blue-500 text-white  hover:bg-blue-600"
             >
               수정
-            </button>
-            <button
-              onClick={deleteClickHandler}
-              className="px-2 py-1 text-sm bg-red-500 text-white rounded hover:bg-red-600"
+            </Button>
+            <Button
+              clickHandler={deleteClickHandler}
+              className=" bg-red-500 text-white  hover:bg-red-600"
             >
               삭제
-            </button>
+            </Button>
           </div>
         </div>
         <div>
@@ -108,18 +109,18 @@ export default function BoardCard({ board, onBoardUpdate }: BoardCardProps) {
         autoFocus
       />
       <div className="flex gap-2 mt-2">
-        <button
-          onClick={handleUpdate}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        <Button
+          clickHandler={handleUpdate}
+          className=" bg-blue-500 text-white  hover:bg-blue-600"
         >
           수정
-        </button>
-        <button
-          onClick={() => setIsEditing(false)}
-          className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+        </Button>
+        <Button
+          clickHandler={() => setIsEditing(false)}
+          className=" bg-gray-200  hover:bg-gray-300"
         >
           취소
-        </button>
+        </Button>
       </div>
     </div>
   );

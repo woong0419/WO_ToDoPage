@@ -8,6 +8,8 @@ import { Todo } from "@/types";
 import { useTodoStore } from "@/store/todoStore";
 import { useModalStore } from "@/store/modalStore";
 
+import Button from "@/components/common/Button";
+
 interface TodoItemProps {
   todo: Todo;
   boardId: string;
@@ -71,36 +73,36 @@ export default function TodoItem({ todo, boardId }: TodoItemProps) {
             autoFocus
           />
           <div className="flex gap-2 mt-2">
-            <button
+            <Button
               type="submit"
               className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
             >
               저장
-            </button>
-            <button
+            </Button>
+            <Button
               type="button"
-              onClick={() => setIsEditing(false)}
+              clickHandler={() => setIsEditing(false)}
               className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
             >
               취소
-            </button>
+            </Button>
           </div>
         </form>
       ) : (
-        <div className="p-3 flex items-center justify-between cursor-move">
-          <div {...attributes} {...listeners}>
-            <span>{todo.content}</span>
+        <div className="p-3 flex flex-col items-left justify-between ">
+          <div {...attributes} {...listeners} className="cursor-move">
+            <span className="block truncate">{todo.content}</span>
           </div>
           <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
             <button
               onClick={() => setIsEditing(true)}
-              className="text-gray-600 hover:text-gray-900"
+              className="text-sm text-gray-600 hover:text-gray-900"
             >
               수정
             </button>
             <button
               onClick={deleteClickHandler}
-              className="text-red-600 hover:text-red-900"
+              className="text-sm text-red-600 hover:text-red-900"
             >
               삭제
             </button>
